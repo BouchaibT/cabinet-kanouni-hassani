@@ -562,23 +562,24 @@
     /* ═══════════════════════════════════════════
        BOUTON WHATSAPP FLOTTANT
     ═══════════════════════════════════════════ */
+    /* WhatsApp — bas gauche, 70×70px */
     .wa-float {
       position: fixed;
       bottom: 28px; left: 28px;
-      width: 58px; height: 58px;
+      width: 70px; height: 70px;
       background: #25D366;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      box-shadow: 0 6px 24px rgba(37,211,102,.5);
       z-index: 999;
       text-decoration: none;
-      animation: wa-bounce 3s ease-in-out infinite;
+      animation: wa-bounce 3.5s ease-in-out infinite;
       transition: transform .2s;
     }
-    .wa-float:hover { transform: scale(1.12); animation: none; }
-    .wa-float svg { width: 30px; height: 30px; }
+    .wa-float:hover { transform: scale(1.1); animation: none; }
+    .wa-float svg { width: 36px; height: 36px; }
     .wa-tooltip {
-      position: absolute; left: 72px;
+      position: absolute; left: 80px;
       background: var(--texte); color: var(--blanc);
       font-size: .8rem; white-space: nowrap;
       padding: 7px 14px; border-radius: 6px;
@@ -595,33 +596,47 @@
     }
     @keyframes wa-bounce {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
+      50% { transform: translateY(-8px); }
     }
 
     /* ═══════════════════════════════════════════
        CHATBOT WEBBOT MAROC
     ═══════════════════════════════════════════ */
     .chatbot-btn {
-      position: fixed; bottom: 28px; right: 28px;
+      position: fixed; bottom: 24px; right: 24px;
       width: 80px; height: 80px;
-      background: linear-gradient(135deg, #7C3AED, #5B21B6);
+      background: linear-gradient(145deg, #6D28D9, #4C1D95);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 28px rgba(124,58,237,.55);
+      box-shadow:
+        0 8px 32px rgba(109,40,217,.65),
+        0 2px 8px rgba(0,0,0,.25),
+        inset 0 1px 0 rgba(255,255,255,.15);
       z-index: 999; cursor: pointer;
-      border: none; transition: transform .2s, box-shadow .2s;
+      border: none;
       outline: none;
-      font-size: 2rem;
+      animation: chatbot-pulse 2.5s ease-in-out infinite;
+      transition: transform .2s;
     }
-    .chatbot-btn:hover { transform: scale(1.08); box-shadow: 0 8px 36px rgba(124,58,237,.7); }
+    .chatbot-btn:hover {
+      transform: scale(1.1);
+      animation: none;
+      box-shadow: 0 10px 40px rgba(109,40,217,.8), 0 2px 8px rgba(0,0,0,.3);
+    }
+    @keyframes chatbot-pulse {
+      0%   { box-shadow: 0 8px 32px rgba(109,40,217,.65), 0 0 0 0 rgba(109,40,217,.6); }
+      50%  { box-shadow: 0 8px 32px rgba(109,40,217,.65), 0 0 0 14px rgba(109,40,217,0); }
+      100% { box-shadow: 0 8px 32px rgba(109,40,217,.65), 0 0 0 0 rgba(109,40,217,0); }
+    }
+    .chatbot-btn .robot-icon { width: 60px; height: 60px; }
     .chatbot-badge {
-      position: absolute; top: 2px; right: 2px;
+      position: absolute; top: 3px; right: 3px;
       width: 22px; height: 22px;
       background: #EF4444; border-radius: 50%;
       font-size: .62rem; font-weight: 700;
       color: white;
       display: flex; align-items: center; justify-content: center;
-      animation: badge-pulse 2s infinite;
+      box-shadow: 0 2px 6px rgba(239,68,68,.5);
     }
     @keyframes badge-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5)} 50%{box-shadow:0 0 0 6px rgba(239,68,68,0)} }
     .chatbot-panel {
@@ -1223,14 +1238,77 @@
 ════════════════════════════════════════════ -->
 <button class="chatbot-btn" id="chatbotBtn" onclick="toggleChat()" aria-label="Assistant WebBot">
   <span class="chatbot-badge" id="chatBadge">1</span>
-  🎧
+  <!-- Robot cartoon SVG 60x60 -->
+  <svg class="robot-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#60A5FA"/>
+        <stop offset="100%" stop-color="#818CF8"/>
+      </linearGradient>
+      <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#A78BFA"/>
+        <stop offset="100%" stop-color="#7C3AED"/>
+      </linearGradient>
+    </defs>
+    <rect x="28.5" y="3" width="3" height="10" rx="1.5" fill="#C4B5FD"/>
+    <circle cx="30" cy="2.5" r="3.5" fill="#FBBF24"/>
+    <circle cx="30" cy="2.5" r="1.5" fill="#F59E0B"/>
+    <rect x="4" y="20" width="6" height="12" rx="3" fill="url(#rg2)"/>
+    <rect x="50" y="20" width="6" height="12" rx="3" fill="url(#rg2)"/>
+    <rect x="5.5" y="23" width="3" height="6" rx="1.5" fill="#C4B5FD" opacity=".6"/>
+    <rect x="51.5" y="23" width="3" height="6" rx="1.5" fill="#C4B5FD" opacity=".6"/>
+    <rect x="8" y="12" width="44" height="40" rx="12" fill="url(#rg1)"/>
+    <rect x="12" y="16" width="36" height="32" rx="8" fill="#1E1B4B" opacity=".55"/>
+    <circle cx="22" cy="28" r="7" fill="#EFF6FF"/>
+    <circle cx="22" cy="28" r="4.5" fill="#3B82F6"/>
+    <circle cx="22" cy="28" r="2.2" fill="#1E3A8A"/>
+    <circle cx="23.5" cy="26.5" r="1.2" fill="white" opacity=".9"/>
+    <circle cx="38" cy="28" r="7" fill="#EFF6FF"/>
+    <circle cx="38" cy="28" r="4.5" fill="#3B82F6"/>
+    <circle cx="38" cy="28" r="2.2" fill="#1E3A8A"/>
+    <circle cx="39.5" cy="26.5" r="1.2" fill="white" opacity=".9"/>
+    <path d="M21 39 Q30 46 39 39" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <ellipse cx="17" cy="35" rx="4" ry="2.5" fill="#F9A8D4" opacity=".5"/>
+    <ellipse cx="43" cy="35" rx="4" ry="2.5" fill="#F9A8D4" opacity=".5"/>
+    <circle cx="30" cy="47" r="2" fill="#C4B5FD" opacity=".8"/>
+  </svg>
 </button>
 
 <div class="chatbot-panel" id="chatbotPanel">
   <div class="chat-header">
-    <div class="chat-avatar">🤖</div>
+    <div class="chat-avatar" style="background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.3);width:56px;height:56px;padding:3px;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="width:44px;height:44px;display:block;">
+        <defs>
+          <linearGradient id="rh1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#60A5FA"/>
+            <stop offset="100%" stop-color="#818CF8"/>
+          </linearGradient>
+          <linearGradient id="rh2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#A78BFA"/>
+            <stop offset="100%" stop-color="#7C3AED"/>
+          </linearGradient>
+        </defs>
+        <rect x="28.5" y="3" width="3" height="10" rx="1.5" fill="#C4B5FD"/>
+        <circle cx="30" cy="2.5" r="3.5" fill="#FBBF24"/>
+        <rect x="4" y="20" width="6" height="12" rx="3" fill="url(#rh2)"/>
+        <rect x="50" y="20" width="6" height="12" rx="3" fill="url(#rh2)"/>
+        <rect x="8" y="12" width="44" height="40" rx="12" fill="url(#rh1)"/>
+        <rect x="12" y="16" width="36" height="32" rx="8" fill="#1E1B4B" opacity=".55"/>
+        <circle cx="22" cy="28" r="7" fill="#EFF6FF"/>
+        <circle cx="22" cy="28" r="4.5" fill="#3B82F6"/>
+        <circle cx="22" cy="28" r="2.2" fill="#1E3A8A"/>
+        <circle cx="23.5" cy="26.5" r="1.2" fill="white" opacity=".9"/>
+        <circle cx="38" cy="28" r="7" fill="#EFF6FF"/>
+        <circle cx="38" cy="28" r="4.5" fill="#3B82F6"/>
+        <circle cx="38" cy="28" r="2.2" fill="#1E3A8A"/>
+        <circle cx="39.5" cy="26.5" r="1.2" fill="white" opacity=".9"/>
+        <path d="M21 39 Q30 46 39 39" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+        <ellipse cx="17" cy="35" rx="4" ry="2.5" fill="#F9A8D4" opacity=".5"/>
+        <ellipse cx="43" cy="35" rx="4" ry="2.5" fill="#F9A8D4" opacity=".5"/>
+      </svg>
+    </div>
     <div class="chat-header-info">
-      <h4>Assistant Cabinet HKH</h4>
+      <h4>Assistant WebBot Maroc</h4>
       <span><span class="chat-online"></span>En ligne · Répond instantanément</span>
     </div>
     <span class="chat-header-badge">WebBot Maroc</span>

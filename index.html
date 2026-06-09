@@ -604,14 +604,14 @@
     ═══════════════════════════════════════════ */
     .chatbot-btn {
       position: fixed; bottom: 24px; right: 24px;
-      width: 90px; height: 90px;
-      background: linear-gradient(145deg, #E3C97A, #C9A84C);
+      width: 100px; height: 100px;
+      background: linear-gradient(145deg, #A52030, #8B1A2A);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       box-shadow:
-        0 8px 32px rgba(201,168,76,.65),
-        0 2px 8px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.25);
+        0 8px 32px rgba(139,26,42,.7),
+        0 2px 8px rgba(0,0,0,.3),
+        inset 0 1px 0 rgba(255,255,255,.18);
       z-index: 999; cursor: pointer;
       border: none;
       outline: none;
@@ -621,12 +621,12 @@
     .chatbot-btn:hover {
       transform: scale(1.08);
       animation: none;
-      box-shadow: 0 10px 40px rgba(201,168,76,.85), 0 2px 8px rgba(0,0,0,.3);
+      box-shadow: 0 12px 44px rgba(139,26,42,.85), 0 2px 8px rgba(0,0,0,.3);
     }
     @keyframes chatbot-pulse {
-      0%   { box-shadow: 0 8px 32px rgba(201,168,76,.65), 0 0 0 0 rgba(201,168,76,.6); }
-      50%  { box-shadow: 0 8px 32px rgba(201,168,76,.65), 0 0 0 16px rgba(201,168,76,0); }
-      100% { box-shadow: 0 8px 32px rgba(201,168,76,.65), 0 0 0 0 rgba(201,168,76,0); }
+      0%   { box-shadow: 0 8px 32px rgba(139,26,42,.7), 0 0 0 0 rgba(139,26,42,.6); }
+      50%  { box-shadow: 0 8px 32px rgba(139,26,42,.7), 0 0 0 18px rgba(139,26,42,0); }
+      100% { box-shadow: 0 8px 32px rgba(139,26,42,.7), 0 0 0 0 rgba(139,26,42,0); }
     }
     .chatbot-badge {
       position: absolute; top: 3px; right: 3px;
@@ -640,7 +640,7 @@
     @keyframes badge-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5)} 50%{box-shadow:0 0 0 6px rgba(239,68,68,0)} }
     .chatbot-panel {
       position: fixed;
-      bottom: 134px; right: 24px;
+      bottom: 144px; right: 24px;
       width: 360px;
       background: var(--blanc);
       border-radius: 18px;
@@ -1237,7 +1237,7 @@
 ════════════════════════════════════════════ -->
 <button class="chatbot-btn" id="chatbotBtn" onclick="toggleChat()" aria-label="Assistant WebBot">
   <span class="chatbot-badge" id="chatBadge">1</span>
-  <svg width="70" height="70" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+  <svg width="75" height="75" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
   <line x1="80" y1="10" x2="80" y2="34" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
   <circle cx="80" cy="8" r="8" fill="#a78bfa"/>
   <rect x="22" y="34" width="116" height="100" rx="32" fill="#ffffff"/>
